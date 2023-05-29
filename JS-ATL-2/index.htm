@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire de contact</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+</head>
+
+<body style="background-color: rgb(238, 235, 235);" ng-app="myApp" ng-controller="LoginController as vm">
+  <div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+      <div class="col-md-6" style="background-color: rgb(255, 255, 255); padding: 25px; border-radius : 15px;">
+        <div class="d-flex justify-content-center">
+          <div class="loader">
+            <svg viewBox="0 0 80 80">
+              <circle id="test" cx="40" cy="40" r="32"></circle>
+            </svg>
+          </div>
+
+          <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+              <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+          </div>
+
+          <div class="loader">
+            <svg viewBox="0 0 80 80">
+              <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+          </div>
+        </div>
+        <h1 class="text-center">Formulaire de contact</h1>
+
+        <form ng-submit="vm.login()" name="loginForm" novalidate>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" ng-model="vm.email" name="email" required>
+            <div ng-show="loginForm.email.$error.required" class="text-danger">Email is required</div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" ng-model="vm.password" name="password" required>
+            <div ng-show="loginForm.password.$error.required" class="text-danger">Password is required</div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="mt-3 text-danger">{{ vm.errorMessage }}</div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+<script src="./index.js"></script>
+</body>
+
+</html>
